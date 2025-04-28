@@ -33,25 +33,6 @@ def clean_text(text):
     return text
 
 
-# Tokenization
-def tokenize(text, method="nltk", remove_stopwords=False):
-    if method == "nltk":
-        tokens = word_tokenize(text)
-    elif method == "split":
-        tokens = text.split()
-    elif method == "byte":
-        tokens = BYTE_TOKENIZER.tokenize(text)
-    elif method == "bpe":
-        tokens = BPE_TOKENIZER.tokenize(text)
-    else:
-        raise ValueError(f"Unsupported tokenization method: {method}")
-
-    if remove_stopwords and method in ["nltk", "split"]:
-        tokens = [t for t in tokens if t not in stop_words]
-
-    return tokens
-
-
 # Vectorization (Count / TF-IDF)
 def vectorize(texts, method="count", **kwargs):
     joined = [' '.join(tokenize(t, method="nltk", remove_stopwords=True)) for t in texts]

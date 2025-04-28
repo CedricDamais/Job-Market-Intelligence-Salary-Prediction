@@ -1,67 +1,44 @@
 """
 Utility functions for loading and using Hugging Face tokenizers.
 """
-
-from tokenizers import Tokenizer
-from huggingface_hub import hf_hub_download
-import os
-import logging
-
-logging.basicConfig(
-    level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
-)
-
-# Cache directory for tokenizers (optional, but good practice)
-CACHE_DIR = os.path.join(
-    os.path.expanduser("~"), ".cache", "huggingface", "tokenizers_custom"
-)
-os.makedirs(CACHE_DIR, exist_ok=True)
+import nltk
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from transformers import AutoTokenizer
 
 
-def load_tokenizer(
-    tokenizer_name: str = "gpt2", cache_dir: str | None = CACHE_DIR
-) -> Tokenizer:
+nltk.download('punkt')
+nltk.download('stopwords')
+
+# Stopwords
+stop_words = set(stopwords.words('english'))
+
+# Preloaded tokenizers
+BYTE_TOKENIZER = AutoTokenizer.from_pretrained("gpt2")  # Byte-level BPE
+BPE_TOKENIZER = AutoTokenizer.from_pretrained("roberta-base")  # WordPiece/BPE hybrid
+
+def tokenize(text, method="nltk", remove_stopwords=False):
+    if method == "nltk":
+        tokens = word_tokenize(text)
+    elif method == "split":
+        tokens = text.split()
+    elif method == "byte":
+        tokens = BYTE_TOKENIZER.tokenize(text)
+    elif method == "bpe":
+        tokens = BPE_TOKENIZER.tokenize(text)
+    else:
+        raise ValueError(f"Unsupported tokenization method: {method}")
+
+    if remove_stopwords and method in ["nltk", "split"]:
+        tokens = [t for t in tokens if t not in stop_words]
+
+    return tokens
+
+def tokenize_data_frame(df, column_names:list, method="byte", remove_stopwords=False):
     """
-    Loads a pre-trained tokenizer from the Hugging Face Hub.
-
-    Args:
-        tokenizer_name: The name of the tokenizer on the Hugging Face Hub
-                        (e.g., "gpt2", "bert-base-uncased").
-        cache_dir: Directory to cache downloaded tokenizer files. Defaults to
-                   ~/.cache/huggingface/tokenizers_custom. Set to None to use
-                   the default cache location of the huggingface_hub library.
-
-    Returns:
-        An instance of the Hugging Face Tokenizer.
-
-    Raises:
-        Exception: If the tokenizer cannot be loaded.
+    Tokenize a column of a DataFrame, and then add the tokenized column to the DataFrame.
+    the name of the new column is the name of the original column with "_tokenized" suffix.
     """
-    logging.info(f"Attempting to load tokenizer: {tokenizer_name}")
-    try:
-        try:
-            config_path = hf_hub_download(
-                repo_id=tokenizer_name,
-                filename="tokenizer.json",
-                cache_dir=cache_dir,
-                library_name="nlp-linkedin-offers",
-                library_version="0.1.0",
-            )
-            tokenizer = Tokenizer.from_file(config_path)
-            logging.info(
-                f"Successfully loaded tokenizer '{tokenizer_name}' from tokenizer.json."
-            )
-            return tokenizer
-        except Exception as e:
-            logging.warning(
-                f"Could not load '{tokenizer_name}' directly from tokenizer.json: {e}. "
-                "Attempting legacy loading (might be slower or require transformers)."
-            )
-            raise FileNotFoundError(
-                f"Could not find or load tokenizer.json for '{tokenizer_name}'. "
-                "Consider installing the 'transformers' library and using AutoTokenizer for broader compatibility."
-            )
-
-    except Exception as e:
-        logging.error(f"Failed to load tokenizer '{tokenizer_name}': {e}")
-        raise
+    for column_name in column_names:
+        df[column_name + "_tokenized"] = df[column_name].apply(lambda x: tokenize(x, method, remove_stopwords))
+    return df
