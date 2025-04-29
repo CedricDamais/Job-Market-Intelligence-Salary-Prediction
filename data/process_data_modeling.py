@@ -13,6 +13,7 @@ logging.basicConfig(
 path = kagglehub.dataset_download("arshkon/linkedin-job-postings")
 
 # This function cleans the text by:
+# 0. Splitting camelCase words
 # 1. Converting to lowercase
 # 2. Removing URLs
 # 3. Removing email addresses
@@ -20,11 +21,13 @@ path = kagglehub.dataset_download("arshkon/linkedin-job-postings")
 # 5. Removing special characters
 # 6. Removing extra whitespace
 def clean_text(text):
+    # Split camelCase words (insert space before capital letters that follow lowercase letters)
+    text = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', text)
     text = text.lower()
     text = re.sub(r"http\S+|www\S+|https\S+", "", text)
     text = re.sub(r"\S+@\S+", "", text)
     text = re.sub(r"\d{10,}", "", text)
-    text = re.sub(r"[^a-zA-Z0-9\s.,!?]", "", text)
+    text = re.sub(r"[^a-zA-Z0-9\s.,!?]", " ", text)
     text = re.sub(r"\s+", " ", text).strip()
     return text
 
