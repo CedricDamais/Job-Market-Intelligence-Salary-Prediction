@@ -1,0 +1,9 @@
+digest: 9ed5d6b9
+name: dataset
+profile: '{"num_rows": 10, "num_elements": 30}'
+schema: '{"mlflow_colspec": [{"type": "string", "name": "inputs", "required": true},
+  {"type": "string", "name": "predictions", "required": true}, {"type": "string",
+  "name": "ground_truth", "required": true}]}'
+source: '{"tags": {"mlflow.user": "cerdricdamais", "mlflow.source.name": "models/src/evaluation/run_model_evaluation.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "2e6046942a906a78fcd6d5f98d9122bdba233d7a"}}'
+source_type: code

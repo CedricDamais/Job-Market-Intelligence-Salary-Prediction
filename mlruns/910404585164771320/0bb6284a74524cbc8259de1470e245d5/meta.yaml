@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/0bb6284a74524cbc8259de1470e245d5/artifacts
+end_time: 1746819270746
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: active
+run_id: 0bb6284a74524cbc8259de1470e245d5
+run_name: suave-auk-280
+run_uuid: 0bb6284a74524cbc8259de1470e245d5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746819254700
+status: 3
+tags: []
+user_id: cerdricdamais

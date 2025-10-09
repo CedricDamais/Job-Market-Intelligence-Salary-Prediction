@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/dcd60b3ae32e41399853a250b8e10112/artifacts
+end_time: 1746821110140
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: active
+run_id: dcd60b3ae32e41399853a250b8e10112
+run_name: rare-shrimp-373
+run_uuid: dcd60b3ae32e41399853a250b8e10112
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746821089870
+status: 3
+tags: []
+user_id: cerdricdamais

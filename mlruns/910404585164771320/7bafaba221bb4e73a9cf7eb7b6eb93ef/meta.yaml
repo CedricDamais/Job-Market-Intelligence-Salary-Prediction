@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/7bafaba221bb4e73a9cf7eb7b6eb93ef/artifacts
+deleted_time: 1746815487679
+end_time: 1746795389949
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: deleted
+run_id: 7bafaba221bb4e73a9cf7eb7b6eb93ef
+run_name: polite-deer-656
+run_uuid: 7bafaba221bb4e73a9cf7eb7b6eb93ef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746795386025
+status: 4
+tags: []
+user_id: cerdricdamais
