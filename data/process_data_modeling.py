@@ -19,6 +19,9 @@ path = kagglehub.dataset_download("arshkon/linkedin-job-postings")
 # 4. Removing numbers with 10 or more digits
 # 5. Removing special characters
 # 6. Removing extra whitespace
+
+
+
 def clean_text(text):
     # Split camelCase words (insert space before capital letters that follow lowercase letters)
     text = re.sub(r'(?<=[a-z])(?=[A-Z])', ' ', text)
@@ -54,11 +57,9 @@ def get_processed_data():
         lambda x: clean_text(x)
     )
 
-    # Create the processed directory if it doesn't exist
     processed_dir = os.path.join(os.getcwd(), "data", "processed")
     os.makedirs(processed_dir, exist_ok=True)
 
-    # Save the DataFrame to the processed directory
     output_path = os.path.join(processed_dir, "cleaned_postings_modeling.parquet")
     postings_df.to_parquet(output_path)
     logging.info(f"DataFrame saved to: {output_path}")
@@ -80,23 +81,19 @@ if __name__ == "__main__":
     )
     print(f"Rows with at least one NaN value: {rows_with_any_nan}")
 
-    # drop rows with NaN values in specific columns
     print(f"Number of rows before dropping NaN values: {postings_df.shape[0]}")
     postings_df.dropna(subset=["company_name", "description", "title"], inplace=True)
 
     print(f"Number of rows after dropping NaN values: {postings_df.shape[0]}")
     postings_df.reset_index(drop=True, inplace=True)
 
-    # Apply the clean_text function and ASSIGN the result back
     postings_df["description"] = postings_df["description"].apply(
         lambda x: clean_text(x)
     )
 
-    # Create the processed directory if it doesn't exist
     processed_dir = os.path.join(os.getcwd(), "data", "processed")
     os.makedirs(processed_dir, exist_ok=True)
 
-    # Save the DataFrame to the processed directory
     output_path = os.path.join(processed_dir, "cleaned_postings_modeling.parquet")
     postings_df.to_parquet(output_path)
     print(f"DataFrame saved to: {output_path}")
