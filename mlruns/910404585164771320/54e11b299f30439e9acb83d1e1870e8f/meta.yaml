@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/54e11b299f30439e9acb83d1e1870e8f/artifacts
+deleted_time: 1746815487674
+end_time: 1746795157126
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: deleted
+run_id: 54e11b299f30439e9acb83d1e1870e8f
+run_name: legendary-crow-678
+run_uuid: 54e11b299f30439e9acb83d1e1870e8f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746795156198
+status: 4
+tags: []
+user_id: cerdricdamais

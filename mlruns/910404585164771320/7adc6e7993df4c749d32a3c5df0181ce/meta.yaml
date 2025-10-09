@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/7adc6e7993df4c749d32a3c5df0181ce/artifacts
+end_time: 1746869740472
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: active
+run_id: 7adc6e7993df4c749d32a3c5df0181ce
+run_name: casual-sponge-585
+run_uuid: 7adc6e7993df4c749d32a3c5df0181ce
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746869718643
+status: 3
+tags: []
+user_id: cerdricdamais

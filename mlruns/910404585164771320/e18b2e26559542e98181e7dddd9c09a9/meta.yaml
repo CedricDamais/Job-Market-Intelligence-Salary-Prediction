@@ -1,0 +1,16 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/e18b2e26559542e98181e7dddd9c09a9/artifacts
+deleted_time: 1746815487696
+end_time: 1746795457769
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: deleted
+run_id: e18b2e26559542e98181e7dddd9c09a9
+run_name: charming-kit-524
+run_uuid: e18b2e26559542e98181e7dddd9c09a9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746795454575
+status: 3
+tags: []
+user_id: cerdricdamais

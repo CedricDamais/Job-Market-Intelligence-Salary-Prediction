@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/f859e8762e664693809ff474b6dc43dd/artifacts
+end_time: 1747079887974
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: active
+run_id: f859e8762e664693809ff474b6dc43dd
+run_name: adaptable-fish-166
+run_uuid: f859e8762e664693809ff474b6dc43dd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747079875048
+status: 3
+tags: []
+user_id: cerdricdamais

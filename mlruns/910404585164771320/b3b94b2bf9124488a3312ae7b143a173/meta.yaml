@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/cerdricdamais/Desktop/EPITA/MAJEUR/NLP-1/NLP_Linkedin_offers/mlruns/910404585164771320/b3b94b2bf9124488a3312ae7b143a173/artifacts
+end_time: 1746796301880
+entry_point_name: ''
+experiment_id: '910404585164771320'
+lifecycle_stage: active
+run_id: b3b94b2bf9124488a3312ae7b143a173
+run_name: painted-shad-451
+run_uuid: b3b94b2bf9124488a3312ae7b143a173
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746796286074
+status: 3
+tags: []
+user_id: cerdricdamais
